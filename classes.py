@@ -73,5 +73,22 @@ class MyInteger(object):
 i = MyInteger()
 i.set_val(9)
 print(i.get_val())
-i.set_val('hi')
+i.val = 'hi'
 print(i.get_val())
+
+#####init_constructor
+
+class MyNum(object):
+    def __init__(self, value):
+        print ('calling__init__')
+        self.val = value
+        
+    def increment(self):
+        self.val = self.val + 1
+        
+dd = MyNum(5)
+
+dd.increment()
+dd.increment()
+
+print (dd.val)
