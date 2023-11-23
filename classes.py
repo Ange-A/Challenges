@@ -92,3 +92,35 @@ dd.increment()
 dd.increment()
 
 print (dd.val)
+
+class YourClass(object):
+    classy = 'class value!'
+    
+dd = YourClass()
+print(dd.classy)
+
+dd.classy= 'inst value!'
+print(dd.classy)
+
+###########@
+
+class InstanceCounter(object):
+    count = 0
+    
+    def __init__(self, val):
+        self.val = val
+        InstanceCounter, count +=1
+        
+    def set_val(self, newval):
+        self.val = newval
+        
+    def get_val(self):
+        return self.val
+    
+    def get_count(self):
+        return InstanceCounter.count
+    
+a = InstanceCounter(5)
+b = InstanceCounter(13)
+c = InstanceCounter(17)
+    
