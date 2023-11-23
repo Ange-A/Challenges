@@ -109,7 +109,7 @@ class InstanceCounter(object):
     
     def __init__(self, val):
         self.val = val
-        InstanceCounter, count +=1
+        InstanceCounter.count += 1
         
     def set_val(self, newval):
         self.val = newval
@@ -126,5 +126,5 @@ c = InstanceCounter(17)
 
 for obj in (a, b, c):
     print('val of obj: %s' %(obj.get_val()))
-    print('val of obj: %s' %(obj.get_count()))
+    print('count: %s' %(obj.get_count()))
     
