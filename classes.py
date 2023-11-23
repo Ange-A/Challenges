@@ -126,4 +126,5 @@ c = InstanceCounter(17)
 
 for obj in (a, b, c):
     print('val of obj: %s' %(obj.get_val()))
+    print('val of obj: %s' %(obj.get_count()))
     
