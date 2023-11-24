@@ -184,4 +184,11 @@ f.swatstring()
 r.eat('dog food')
 r.eat('some food')
         
+    #########@
     
+class Animal(object):
+    def __init__(self, name):
+        self.name = name
+        
+    def eat(self, food):
+        print ('{0} eats {1}'.format(self.name, food))
