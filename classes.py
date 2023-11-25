@@ -184,7 +184,7 @@ f.swatstring()
 r.eat('dog food')
 r.eat('some food')
         
-    #########@
+    #########polymorphism(len)
     
 class Animal(object):
     def __init__(self, name):
@@ -192,3 +192,44 @@ class Animal(object):
         
     def eat(self, food):
         print ('{0} eats {1}'.format(self.name, food))
+        
+#############
+import random
+
+class Animal(object):
+    def __init__(self, name):
+        self.name = name
+        
+class Dog(Animal):
+    
+    def __init__(self, name):
+        super(Dog, self).__init__(name)
+        self.breed = random.choice(['Shit Tzu', 'Beagle', 'Mutt'])
+        
+    def fetch(self, thing):
+        print ('%s goes after the %s!'%(self.name, thing))
+        
+    ##########
+    
+    class A(object):
+        
+        def dothis(self):
+            print ('doing this in A')
+            
+    class B(A):
+        pass
+    
+    class C(A):
+        def dothis(self):
+            print('do in c')
+            
+    class D(B,C):
+        pass
+    
+    d_instance = D()
+    d_instance.dothis()
+    
+    print (D.mro())
+        
+    
+    
