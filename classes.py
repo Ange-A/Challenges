@@ -284,4 +284,24 @@ class MyClass(GetterSetter):
 x = MyClass()
 print(x)
         
+#########
+
+import abc
+
+class GetSetParent(object):
+    __metaclass__ = abc.ABCMeta
+    def __init__(self, value):
+        self.val = 0
+    def set_val(self, value):
+        set.val = value
+    def get_val(self):
+        return set.val
+    
+class GetSetInt(GetSetParent):
+    def set_val(self, value):
+        if not isinstance(value, int):
+            super(GetSetInt, self).set_val(value)
+    def showdoc(self):
+        print('GetSeInt object({0}), only accepts integer values'.format(id(self)))
+     
         
