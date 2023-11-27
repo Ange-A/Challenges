@@ -27,6 +27,7 @@ print; print
 ###############A method on an instance passes instance as the argument to the method(named seld in the method)
 
 import random
+from typing import Any
 class MyClass(object):
     def dothis(self):
         self.rand_val = random.randint(1, 10)
@@ -259,30 +260,7 @@ print(c.val)
         
 ##############
 
-import abc
 
-class GetterSetter(object):
-    __metaclass__ = abc.ABCMeta
-    
-    @abc.abstractmethod
-    def set_val(self, input):
-        return
-    
-    @abc.abstractmethod
-    def get_val(self):
-        return
-
-    
-class MyClass(GetterSetter):
-    
-    def set_val(self, input):
-        self.val = input
-        
-    def get_val(self, input):
-        return self.val 
-
-x = MyClass()
-print(x)
         
 #########
 
@@ -316,5 +294,73 @@ class GetSetList(GetSetParent):
         self.vallist.append(value)
     def showdoc(self):
         print('getlist object, len{0}, stores, history of values set'.format(len(self.vallist)))
+        
+###############
+
+import abc
+from datetime import datetime
+
+class WriteFile(object):
+    
+    __metaclass__ = abc.ABCMeta
+    
+    @abc.abstractmethod
+    def write(self):
+        return
+    
+    def __init__(self, filename):
+        self.filename = filename
+        
+    def write_line(self, text):
+        fh = open(self.filename, 'a')
+        fh.write(text + '\n')
+        fh.close()
+        
+class DelimFile(WriteFile):
+    def __init__(self, filename, delim):
+        super(DelimFile.self).__init__(filename)
+        self.delim = delim
+        
+    def write(self, this_list):
+        line = self.delim.join(this_list)
+        self.write_line(line)
+        
+        
+class Logfile(WriteFile):
+    def write(self, this_line):
+        dt = datetime.now()
+        date_str = dt.strftume('%y-%m-%d %H=%M')
+        self.write_line('{0} {1}'.format(date_str, this_line))
+        
+########################
+class SumList(object):
+    
+    def __init__(self, this_list):
+        self.mylist = this_list
+        
+    def __add__(self, other):
+        new_list = [ x + y for x, y in zip(self.mylist, other.mylist)]
+        
+        return SumList(new_list)
+    
+    def __repr__(self):
+        return str(self.mylist)
+    
+cc = SumList([1, 2, 3, 4])
+dd = SumList([1, 2, 3, 4])
+
+ee = cc + dd
+        
+print(ee) 
+
+    
+    
+
+
+        
     
         
+        
+
+        
+    
