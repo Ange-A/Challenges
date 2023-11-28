@@ -412,10 +412,18 @@ with MyClass() as cc:
     
 print('after the "with" block')
 
+#########@
 
         
         
-
+class MyDict(dict):
+    def __item__(self, key, val):
+        
+        dict.__setitem__(self, key, val)
+        
+        
+        
+        
 
 
 
