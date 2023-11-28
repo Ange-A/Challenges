@@ -369,6 +369,30 @@ for key in dd:
     print('{0}={1}'.format(key, dd[key]))
     
 print
+
+##############@@
+
+class MyList(list):
+    
+    def __getitem__(self, index):
+        if index == 0: raise IndexError
+        if index > 0:  index = index - 1
+        return list.__getitem__(self, index)
+    
+    def __set__item(self, index, value):
+        if index == 0: raise IndexError
+        if index > 0:  index = index - 1
+        return list.__getitem__(self, index, value)
+
+x = MyList(['a', 'b', 'c'])
+print(x)
+
+x.append('spam')
+    
+print(x[1])
+        
+
+
         
         
 
