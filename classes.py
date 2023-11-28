@@ -353,6 +353,29 @@ ee = cc + dd
         
 print(ee) 
 
+####################
+
+class MyDict(dict):
+    
+    def __setitem__(self, key, val):
+        print ("setting a key and a value!")
+        dict.__setitem__(self, key, val)
+        
+dd = MyDict()
+dd['a'] = 5
+dd['b'] = 6
+
+for key in dd:
+    print('{0}={1}'.format(key, dd[key]))
+    
+print
+        
+        
+
+
+
+
+
     
     
 
